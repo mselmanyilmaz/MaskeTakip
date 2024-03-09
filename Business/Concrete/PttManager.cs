@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace Business.Concrete
 {
-    public class PttManager
+    public class PttManager /*: ISupplierService*/
     {
         IApplicantService _applicantService;
 

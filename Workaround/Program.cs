@@ -1,4 +1,5 @@
-﻿using Entities.Concrete;
+﻿using Business.Concrete;
+using Entities.Concrete;
 using System;
 
 namespace Workaround
@@ -61,6 +62,14 @@ namespace Workaround
             {
                 Console.WriteLine(sehir);
             }
+
+            PttManager pttManager = new PttManager(new PersonManager()); //Bu kullanımda yapı PTT haricinde bir yerden maske dağıtımı işine entegrasyonu zor hale getirir. Olması
+                                                                         //gereken PttManager concrete sınıfını çıplak halde bırakmayıp onu bir ISupplierService gibi interfaceden
+                                                                         //kalıtım aldırarak daha sonra başka bir yerden (örn eczane) dağıtım yapılmasına imkan sağlamaktır. Eczaneyi
+                                                                         //sisteme dahil etme işi bu durumda onun da bir manager sınıfını yaparak (örn PharmacyManager)
+                                                                         //ISupplierService den kalıtım aldırmaktır.
+            pttManager.GiveMask(person1);
+
 
 
             //int sayi1 = 10;
